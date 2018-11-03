@@ -1,0 +1,28 @@
+import Foundation
+import RxCocoa
+import RxSwift
+
+protocol {{ module_info.name }}ViewModelInputs {
+    func viewDidLoad()
+}
+
+protocol {{ module_info.name }}ViewModelOutputs {
+}
+
+protocol {{ module_info.name }}ViewModelType {
+    var inputs: {{ module_info.name }}ViewModelInputs { get }
+    var outputs: {{ module_info.name }}ViewModelOutputs { get }
+}
+
+final class {{ module_info.name }}ViewModel: {{ module_info.name }}ViewModelType, {{ module_info.name }}ViewModelInputs, {{ module_info.name }}ViewModelOutputs {
+    init() {
+    }
+
+    private let viewDidLoadProperty = BehaviorRelay(value: ())
+    func viewDidLoad() {
+        viewDidLoadProperty.accept(())
+    }
+
+    var inputs: {{ module_info.name }}ViewModelInputs { return self }
+    var outputs: {{ module_info.name }}ViewModelOutputs { return self }
+}
