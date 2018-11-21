@@ -1,0 +1,11 @@
+import UIKit
+
+protocol {{ module_info.name }}Navigator {
+}
+
+final class Default{{ module_info.name }}Navigator: {{ module_info.name }}Navigator {
+    private weak var navigationController: UINavigationController?
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
+    }
+}
