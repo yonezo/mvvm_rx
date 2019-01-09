@@ -1,9 +1,9 @@
 import UIKit
 
-protocol {{ module_info.name }}Navigator {
+protocol {{ module_info.name }}NavigatorType {
 }
 
-final class Default{{ module_info.name }}Navigator: {{ module_info.name }}Navigator {
+final class {{ module_info.name }}Navigator: {{ module_info.name }}NavigatorType {
     private weak var navigationController: UINavigationController?
     init(navigationController: UINavigationController?) {
         self.navigationController = navigationController

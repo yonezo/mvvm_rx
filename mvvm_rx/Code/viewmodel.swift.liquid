@@ -3,7 +3,7 @@ import RxCocoa
 import RxSwift
 
 protocol {{ module_info.name }}ViewModelInputs {
-    func viewDidLoad()
+    func viewWillAppear()
 }
 
 protocol {{ module_info.name }}ViewModelOutputs {
@@ -18,9 +18,9 @@ final class {{ module_info.name }}ViewModel: {{ module_info.name }}ViewModelType
     init() {
     }
 
-    private let viewDidLoadProperty = BehaviorRelay(value: ())
-    func viewDidLoad() {
-        viewDidLoadProperty.accept(())
+    private let viewWillAppearProperty = PublishRelay<Void>()
+    func viewWillAppear() {
+        viewWillAppearProperty.accept(())
     }
 
     var inputs: {{ module_info.name }}ViewModelInputs { return self }
