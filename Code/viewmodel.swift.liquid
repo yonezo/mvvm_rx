@@ -18,9 +18,9 @@ final class {{ module_info.name }}ViewModel: {{ module_info.name }}ViewModelType
     init() {
     }
 
-    private let viewWillAppearProperty = PublishRelay<Void>()
+    private let viewWillAppearProperty = PublishSubject<Void>()
     func viewWillAppear() {
-        viewWillAppearProperty.accept(())
+        viewWillAppearProperty.onNext(())
     }
 
     var inputs: {{ module_info.name }}ViewModelInputs { return self }
